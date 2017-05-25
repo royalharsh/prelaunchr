@@ -1,6 +1,15 @@
-<div class="key"></div>
-<p class="byline brandon">Be the first to know</p>
-<%= form_for @user, :url => { :action => "create" } do |f| %>
-  <%= f.text_field :email, :placeholder => "Enter Email", :class => "email brandon" %>
-  <input class="submit brandon" name="commit" type="submit" value="Step Inside" />
-<% end %>
+<p class="tuned">Stay tuned, subscribe to get more information</p>
+<div class="email col s12">
+	<div class="row">
+		<div class="col s12">
+			<%= form_for @user, :url => { :action => "create" } do |f| %>
+			  <div class="col s8">
+			  	<%= f.text_field :email, :placeholder => "Enter Email", :class => "submit" %>
+				</div>
+				<div class="col s4">
+					<input class="waves btn-flat" name="commit" type="submit" value="Subscribe" />
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

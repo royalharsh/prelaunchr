@@ -1,12 +1,47 @@
-<div class="hero">
-  <p class="large brandon">Harry&#8217;s is live</p>
-  <p class="small brandon">Respecting the Face and Wallet<br>Since Like...Right Now.</p>
+<div class="logo">
+	<img src="/gifs/animation_2_-asap-rocky.gif" alt="ASAP-rocky" height="150px" class="rocky" />
+	<img src="/gifs/animation_4-chance-the-rapper.gif" alt="Chance the rapper" height="150px" class="chance" />
+	<img src="/gifs/logo.gif" alt="logo"  height="150px" class="logo" />
+	<img src="/gifs/animation_10-rihanna.gif" alt="Rihanna" height="150px" class="rihanna" />
+	<img src="/gifs/animation_11-kendrick-lamar.gif" alt="Kendrick" height="150px" class="lamar" />
 </div>
 
-<div class="form-wrap clearfix <%= "ended" if Rails.application.config.ended %>">
-  <% if Rails.application.config.ended %>
-    <%= render "users/campaign_ended" %>
-  <% else %>
-    <%= render "users/campaign_ongoing" %>
-  <% end %>
+<div class="left-side">
+	<img src="/gifs/animation_5-obama.gif" alt="Obama" height="150px" class="obama" />
+	<img src="/gifs/animation_7-nicki-minaj.gif" alt="Nicki" height="150px" class="nicki" />
+</div>
+
+<div class="right-side">
+	<img src="/gifs/animation_12-elon-musk.gif" alt="Elon" height="100px" class="musk" />
+	<img src="/gifs/animation_13-serena_williams.gif" alt="Serena" height="150px" class="serena" />
+</div>
+
+<div class="container">
+	<div class="box">
+		<h1>CULTURE NEVER SLEEPS.</h1>
+		<h2>Psst. Hey! Guess what...</h2>
+		<h3>CULTURE BY POPULAR DEMAND IS COMING</h3>
+		<p class="blue-text">We make and bake the best original content on the latest in music,<br>
+		culture, tech, food, style, sports and of course life.</p>
+		<div class="inner-box">
+		  <% if Rails.application.config.ended %>
+		    <%= render "users/campaign_ended" %>
+		  <% else %>
+		    <%= render "users/campaign_ongoing" %>
+		  <% end %>
+		</div>
+	</div>
+	<div class="footer">
+		<p>#onthatcbpd</p>
+		<div class="social-icons">
+			<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-snapchat-ghost fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
+		</div>
+		<div class="copyright">
+			<p>Culture by Popular Demand Media. 2017  |  Privacy Policy  |  Terms of Use</p>
+		</div>
+	</div>
 </div>

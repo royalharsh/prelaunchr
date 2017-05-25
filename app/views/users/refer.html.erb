@@ -1,87 +1,111 @@
-<div class="header">
-  <div class="content">
-    <p class="logo brandon">Harry&#8217;s</p>
-    <p class="byline brandon">THANK YOU FOR SIGNING UP</p>
-  </div>
+<div class="logo">
+	<img src="/gifs/animation_2_-asap-rocky.gif" alt="ASAP-rocky" height="150px" class="rocky" />
+	<img src="/gifs/animation_4-chance-the-rapper.gif" alt="Chance the rapper" height="150px" class="chance" />
+	<img src="/gifs/logo.gif" alt="logo"  height="150px" class="logo" />
+	<img src="/gifs/animation_10-rihanna.gif" alt="Rihanna" height="150px" class="rihanna" />
+	<img src="/gifs/animation_11-kendrick-lamar.gif" alt="Kendrick" height="150px" class="lamar" />
 </div>
 
-<div class="hero">
-  <div class="page-content clearfix">
-    <div class="mammoth">
-      <span class="need brandon">Shaving Is<br>Evolving</span>
-    </div>
-    <div class="share-wrap">
-      <p class="why brandon">Don't leave your friends behind</p>
-      <p class="title brandon">INVITE FRIENDS &<br>Earn Product</p>
-      <p class="subtitle brandon">Share your unique link via email, Facebook<br>or Twitter and earn Harry's goods for<br>each friend who signs up.</p>
-      <div class="copy-link brandon"><%= root_url %>?ref=<%= @user.referral_code %></div>
-      <% twitter_message = "#Shaving is evolving. Excited for @harrys to launch." %>
-      <div class="social-links">
-        <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Harrys" class="fb" target="_blank"></a>
-        <div class="sep"></div>
-        <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
-      </div>
-    </div>
-  </div>
+<div class="left-side">
+	<img src="/gifs/animation_5-obama.gif" alt="Obama" height="150px" class="obama" />
+	<img src="/gifs/animation_7-nicki-minaj.gif" alt="Nicki" height="150px" class="nicki" />
 </div>
 
-<%
-  referrals_count = @user.referrals.count
+<div class="right-side">
+	<img src="/gifs/animation_12-elon-musk.gif" alt="Elon" height="100px" class="musk" />
+	<img src="/gifs/animation_13-serena_williams.gif" alt="Serena" height="150px" class="serena" />
+</div>
 
-  stops = User::REFERRAL_STEPS
+<div class="container">
+	<div class="box">
+		<h1 style="margin-left:50px; text-align: left; font-size: 30px;">Thank you <br/> </h1>
+		<h2 style="margin-left:50px; text-align: left; margin-top: -20px;">for subscribing!</h2>
+		<h3 style="margin-left:50px; font-size: 15px; text-align: left;">The only story worth reading</h3>
+		<h3 style="margin-left:50px; text-align: left; margin-top: -15px;">is the one that's relevant.</h3>
+		<p style="text-align: right; margin-right: 50px;">BE A GOOD FRIEND AND SHARE THE LOVE</p>
+		<p style="text-align: right; color: white; font-weight: bold; font-size: 25px; text-transform: uppercase; margin-right: 50px;">Invite Friends and Earn Stuff!</p>
+		<p style="font-size: 12px; text-align: right; margin-right: 50px;">Share your unique link via email, Facebook or Twitter and <br/> earn Culture by Popular Demand stuff for each friend who signs up.</p>
+		<% twitter_message = "#onthatcbpd CULTURE BY POPULAR DEMAND IS COMING." %>
+		<div class="social-links col s12">
+			<div class="copy-link col s8">
+				<%= root_url %>?ref=<%= @user.referral_code %>
+			</div>
+			<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=CBPD" class="fb col s2" target="_blank"  style="color: white;"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+			<div class="sep"></div>
+			<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit col s2" target="_blank"  style="color: white;"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+		</div>
+		<%
+		  referrals_count = @user.referrals.count
 
-  found = nil
+		  stops = User::REFERRAL_STEPS
 
-  stops.reverse_each { |stop|
-    if stop["count"] <= referrals_count and !found
-      stop["selected"] = true
-      found = stop
-    else
-      stop["selected"] = false
-    end
-  }
-%>
-<div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
-  <div class="page-content">
-    <p class="callout brandon">Here's How It Works:</p>
-    <ul class="products clearfix">
-      <li class="title brandon"><p class="friends">Friends Joined</p><p class="rewards">Harry's Product</p></li>
-      <% stops.each do |stop| %>
-        <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
-          <div class="circle"><%= stop["count"] %></div>
-          <div class="sep"></div>
-          <p><%= stop["html"].html_safe %></p>
+		  found = nil
 
-          <div class="tooltip">
-            <img src="<%= stop["image"] %>" height="254">
-          </div>
-        </li>
-      <% end %>
-    </ul>
+		  stops.reverse_each { |stop|
+		    if stop["count"] <= referrals_count and !found
+		      stop["selected"] = true
+		      found = stop
+		    else
+		      stop["selected"] = false
+		    end
+		  }
+		%>
+		<!-- <div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+		  <div class="page-content">
+		    <p class="callout">Here's how it works:</p>
+		    <ul class="products clearfix">
+		      <li class="title brandon"><p class="friends">Friends Joined</p><p class="rewards">Reward</p></li>
+		      <% stops.each do |stop| %>
+		        <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
+		          <div class="circle"><%= stop["count"] %></div>
+		          <div class="sep"></div>
+		          <p><%= stop["html"].html_safe %></p>
+		
+		          <div class="tooltip">
+		            <img src="<%= stop["image"] %>" height="254">
+		          </div>
+		        </li>
+		      <% end %>
+		    </ul>
+		
+		    <div class="progress">
+		      <div class="mover">
+		        <div class="bar clearfix"></div>
+		      </div>
+		    </div>
+		
+		    <%
+		      words = ''
+		      if referrals_count == 1
+		        words = 'friend has'
+		      elsif
+		        words = 'friends have'
+		      end
+		    %>
+		
+		    <% if referrals_count == 0 %>
+		      <p class="place"><span>No</span> friends have joined...Yet!</p>
+		    <% else %>
+		      <p class="place"><span><%= referrals_count %></span> <%= words %> joined</p>
+		    <% end %>
+		    <p class="check">Keep checking</p>
+		
+		    <p class="ship">We ship to the U.S. (& Canada Soon)</p>
+		  </div>
+		</div> -->
 
-    <div class="progress">
-      <div class="mover">
-        <div class="bar clearfix"></div>
-      </div>
-    </div>
-
-    <%
-      words = ''
-      if referrals_count == 1
-        words = 'friend has'
-      elsif
-        words = 'friends have'
-      end
-    %>
-
-    <% if referrals_count == 0 %>
-      <p class="place brandon"><span>No</span> friends have joined...Yet!</p>
-    <% else %>
-      <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p>
-    <% end %>
-    <p class="check brandon">Keep checking</p>
-
-    <p class="ship brandon">We ship to the U.S. (& Canada Soon)</p>
-    <a class="policy brandon" href="/privacy-policy" target="_blank">Privacy Policy</a>
-  </div>
+	</div>
+	<div class="footer">
+		<p>#onthatcbpd</p>
+		<div class="social-icons">
+			<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-snapchat-ghost fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
+		</div>
+		<div class="copyright">
+			<p>Culture by Popular Demand Media. 2017  |  <a href="/privacy-policy" target="_blank">Privacy Policy</a>  |  Terms of Use</p>
+		</div>
+	</div>
 </div>
